@@ -57,5 +57,10 @@ namespace WypozyczlniaGierIKsiazek
             listBoxListaKsiazek.DataSource = null;
             listBoxListaKsiazek.DataSource = mojaBibliotekaKsiazek.ZaladujKsiazki();
         }
+
+        private void GlowneOkno_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

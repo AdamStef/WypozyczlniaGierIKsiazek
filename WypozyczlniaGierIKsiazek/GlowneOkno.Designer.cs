@@ -129,6 +129,7 @@
             this.Controls.Add(this.label1);
             this.Name = "GlowneOkno";
             this.Text = "GlowneOkno";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GlowneOkno_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -11,6 +11,8 @@ namespace WypozyczlniaGierIKsiazek
     {
         public int minWiek;
         public string tytul;
+        static private string plikGry = "gry.txt";
+        private string pathGry = Path.Combine(Environment.CurrentDirectory, @"Files\", plikGry);
 
         public Gra(string tytul, int minWiek, decimal cena, string opis)
             : base(cena, opis)
@@ -26,8 +28,7 @@ namespace WypozyczlniaGierIKsiazek
 
         public void ZapiszDoPliku()
         {
-            using (StreamWriter zapisz = new StreamWriter
-                (@"D:\informatyka\Programowanie\Dodatkowe\WypozyczlniaGierIKsiazek\gry.txt", true))
+            using (StreamWriter zapisz = new StreamWriter(pathGry, true))
             {
                 zapisz.WriteLine("{0}|{1}|{2}|{3}", tytul, minWiek, cena, opis);
             }

@@ -7,22 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Data.SqlClient;
 
 namespace WypozyczlniaGierIKsiazek
 {
     public partial class Logowanie : Form
     {
-        string login = "admin";
-        string password = "qwerty";
-
         public Logowanie()
         {
             InitializeComponent();
+            Form form = new Form();
         }
 
         public void Loguj()
         {
-            if (textBoxLogin.Text.Equals(login) && textBoxHaslo.Text.Equals(password))
+            SqlConnection con = new SqlConnection(@"Data Source=ADAM-PC\HUMANSOFT;Initial Catalog=Users;Integrated Security=True;Pooling=False;");
+            SqlDataAdapter sda = new SqlDataAdapter("SELECT COUNT(*) FROM Users WHERE Username='" + textBoxLogin.Text + "'AND Password='" + textBoxHaslo.Text +"'", con);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+
+            if(dt.Rows[0][0].ToString() == "1")
             {
                 Form mainForm = new GlowneOkno();
                 mainForm.Show();
@@ -30,7 +35,7 @@ namespace WypozyczlniaGierIKsiazek
             }
             else
             {
-                MessageBox.Show("Podałeś złe hasło!");
+                MessageBox.Show("Zły login lub hasło!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -45,6 +50,17 @@ namespace WypozyczlniaGierIKsiazek
             {
                 Loguj();
             }
+        }
+
+        private void buttonRegister_Click(object sender, EventArgs e)
+        {
+            Form register = new RegisterForm();
+            register.Show();
+        }
+
+        public static void EnableForm()
+        {
+            
         }
     }
 }

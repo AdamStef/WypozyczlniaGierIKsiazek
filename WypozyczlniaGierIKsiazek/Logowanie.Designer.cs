@@ -33,6 +33,7 @@
             this.buttonLoguj = new System.Windows.Forms.Button();
             this.textBoxLogin = new System.Windows.Forms.TextBox();
             this.textBoxHaslo = new System.Windows.Forms.TextBox();
+            this.buttonRegister = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -55,9 +56,9 @@
             // 
             // buttonLoguj
             // 
-            this.buttonLoguj.Location = new System.Drawing.Point(91, 99);
+            this.buttonLoguj.Location = new System.Drawing.Point(77, 82);
             this.buttonLoguj.Name = "buttonLoguj";
-            this.buttonLoguj.Size = new System.Drawing.Size(75, 23);
+            this.buttonLoguj.Size = new System.Drawing.Size(105, 36);
             this.buttonLoguj.TabIndex = 3;
             this.buttonLoguj.Text = "Loguj";
             this.buttonLoguj.UseVisualStyleBackColor = true;
@@ -79,17 +80,29 @@
             this.textBoxHaslo.TabIndex = 2;
             this.textBoxHaslo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxHaslo_KeyPress);
             // 
+            // buttonRegister
+            // 
+            this.buttonRegister.Location = new System.Drawing.Point(12, 128);
+            this.buttonRegister.Name = "buttonRegister";
+            this.buttonRegister.Size = new System.Drawing.Size(88, 23);
+            this.buttonRegister.TabIndex = 4;
+            this.buttonRegister.Text = "Zarejestruj się";
+            this.buttonRegister.UseVisualStyleBackColor = true;
+            this.buttonRegister.Click += new System.EventHandler(this.buttonRegister_Click);
+            // 
             // Logowanie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(282, 163);
+            this.Controls.Add(this.buttonRegister);
             this.Controls.Add(this.textBoxHaslo);
             this.Controls.Add(this.textBoxLogin);
             this.Controls.Add(this.buttonLoguj);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Logowanie";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Logowanie";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -103,5 +116,6 @@
         private System.Windows.Forms.Button buttonLoguj;
         private System.Windows.Forms.TextBox textBoxLogin;
         private System.Windows.Forms.TextBox textBoxHaslo;
+        private System.Windows.Forms.Button buttonRegister;
     }
 }

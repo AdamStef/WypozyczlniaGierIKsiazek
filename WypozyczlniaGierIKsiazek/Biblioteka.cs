@@ -11,6 +11,10 @@ namespace WypozyczlniaGierIKsiazek
     {
         private List<Gra> listaGier;
         private List<Ksiazka> listaKsiazek;
+        static private string plikGry = "gry.txt";
+        static private string plikKsiazki = "ksiazki.txt";
+        private string pathGry = Path.Combine(Environment.CurrentDirectory, @"Files\", plikGry);
+        private string pathKsiazki = Path.Combine(Environment.CurrentDirectory, @"Files\", plikKsiazki);
 
         public Biblioteka()
         {
@@ -59,7 +63,8 @@ namespace WypozyczlniaGierIKsiazek
         public void ImportujGryZPliku()
         {
             listaGier.Clear();
-            using (StreamReader wczytaj = new StreamReader(@"D:\informatyka\Programowanie\Dodatkowe\WypozyczlniaGierIKsiazek\gry.txt"))
+            //using (StreamReader wczytaj = new StreamReader(@"D:\informatyka\Programowanie\Dodatkowe\WypozyczlniaGierIKsiazek\gry.txt"))
+            using (StreamReader wczytaj = new StreamReader(pathGry))
             {
                 string linia;
                 while ((linia = wczytaj.ReadLine()) != null)
@@ -74,7 +79,7 @@ namespace WypozyczlniaGierIKsiazek
         public void ImportujKsiazkiZPliku()
         {
             listaKsiazek.Clear();
-            using (StreamReader wczytaj = new StreamReader(@"D:\informatyka\Programowanie\Dodatkowe\WypozyczlniaGierIKsiazek\ksiazki.txt"))
+            using (StreamReader wczytaj = new StreamReader(pathKsiazki))
             {
                 string linia;
                 while ((linia = wczytaj.ReadLine()) != null)
@@ -88,7 +93,7 @@ namespace WypozyczlniaGierIKsiazek
 
         private void ZapiszGryDoPliku()
         {
-            using (StreamWriter zapisz = new StreamWriter(@"D:\informatyka\Programowanie\Dodatkowe\WypozyczlniaGierIKsiazek\gry.txt"))
+            using (StreamWriter zapisz = new StreamWriter(pathGry))
             {
                 foreach (Gra gra in listaGier)
                 {
@@ -99,7 +104,7 @@ namespace WypozyczlniaGierIKsiazek
 
         private void ZapiszKsiazkiDoPliku()
         {
-            using (StreamWriter zapisz = new StreamWriter(@"D:\informatyka\Programowanie\Dodatkowe\WypozyczlniaGierIKsiazek\ksiazki.txt"))
+            using (StreamWriter zapisz = new StreamWriter(pathKsiazki))
             {
                 foreach (Ksiazka ksiazka in listaKsiazek)
                 {

@@ -13,6 +13,8 @@ namespace WypozyczlniaGierIKsiazek
         public string wydawnictwo;
         public string tytul;
         public int isbn;
+        static private string plikKsiazki = "ksiazki.txt";
+        private string pathKsiazki = Path.Combine(Environment.CurrentDirectory, @"Files\", plikKsiazki);
 
         public Ksiazka(string tytul, string autor, decimal cena, string opis, string wydawnictwo, int isbn)
             : base(cena, opis)
@@ -30,7 +32,7 @@ namespace WypozyczlniaGierIKsiazek
 
         public void ZapiszDoPliku()
         {
-            using (StreamWriter zapisz = new StreamWriter(@"D:\informatyka\Programowanie\Dodatkowe\WypozyczlniaGierIKsiazek\ksiazki.txt", true))
+            using (StreamWriter zapisz = new StreamWriter(pathKsiazki, true))
             {
                 zapisz.WriteLine("{0}|{1}|{2}|{3}|{4}|{5}", tytul, autor, cena, opis, wydawnictwo, isbn);
             }

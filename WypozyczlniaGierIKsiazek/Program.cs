@@ -16,7 +16,8 @@ namespace WypozyczlniaGierIKsiazek
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Logowanie());
+            Form logowanie = new Logowanie();
+            Application.Run(logowanie);
         }
     }
 }
